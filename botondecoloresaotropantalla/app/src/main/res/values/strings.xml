@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">boton de colores a otro pantalla</string>
+    <string name="button">Menú</string>
+    <string name="button2">Principal</string>
+    <string name="button3">Casa</string>
+</resources>
