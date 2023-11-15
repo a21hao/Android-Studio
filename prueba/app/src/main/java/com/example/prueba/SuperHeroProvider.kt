@@ -19,7 +19,7 @@ class SuperHeroProvider {
                 "Avatar",
                 "James Cameron",
                 "Avatar",
-                R.drawable.avatar_3gqz
+                R.drawable.lin_haojie_m16_uf1_aa1_dibujo_color
             ),
             SuperHero(
                 "Avatar",

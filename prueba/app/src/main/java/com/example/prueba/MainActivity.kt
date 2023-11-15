@@ -2,6 +2,7 @@ package com.example.prueba
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.prueba.adapter.SuperHeroAdapter
@@ -15,7 +16,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun initRecyclerView(){
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerSuperHero)
-        recyclerView.layoutManager = LinearLayoutManager(this)
+        val gridLayoutManager = GridLayoutManager(this, 2)
+        recyclerView.layoutManager = gridLayoutManager
+
         recyclerView.adapter = SuperHeroAdapter(SuperHeroProvider.superheroList)
     }
 }
