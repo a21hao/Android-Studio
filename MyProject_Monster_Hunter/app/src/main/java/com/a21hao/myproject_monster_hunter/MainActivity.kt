@@ -1,48 +1,75 @@
 package com.a21hao.myproject_monster_hunter
 
-import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.ActionBarDrawerToggle
+import android.view.Menu
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import androidx.drawerlayout.widget.DrawerLayout
-import com.google.android.material.navigation.NavigationView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.activity_main.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var drawerLayout: DrawerLayout
-    private lateinit var navigationView: NavigationView
+    private lateinit var recyclerView: RecyclerView
+    private var monsters: MutableList<Monster> = mutableListOf()
+    private lateinit var adapter: MonsterAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        drawerLayout = findViewById(R.id.drawer_layout)
-        navigationView = findViewById(R.id.navigation_view)
+        setSupportActionBar(toolbar)
 
-        val toggle = ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close)
-        drawerLayout.addDrawerListener(toggle)
-        toggle.syncState()
+        recyclerView = findViewById(R.id.monster_recycle)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        adapter = MonsterAdapter(monsters)
+        recyclerView.adapter = adapter
 
-        navigationView.setNavigationItemSelectedListener { menuItem ->
-            when (menuItem.itemId) {
-                R.id.menu_item -> {
-                    startActivity(Intent(this, ItemActivity::class.java))
-                    true
+        val retrofit = Retrofit.Builder()
+            .baseUrl("https://tu-api-url.com/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+
+        val apiService = retrofit.create(ApiService::class.java)
+
+        val call = apiService.getMonsters()
+        call.enqueue(object : Callback<List<Monster>> {
+            override fun onResponse(call: Call<List<Monster>>, response: Response<List<Monster>>) {
+                if (response.isSuccessful) {
+                    monsters.addAll(response.body()!!)
+                    adapter.notifyDataSetChanged()
+                } else {
+                    // Manejar errores
                 }
-                R.id.menu_monster -> {
-                    startActivity(Intent(this, MonsterActivity::class.java))
-                    true
-                }
-                R.id.menu_weapon -> {
-                    startActivity(Intent(this, WeaponActivity::class.java))
-                    true
-                }
-                R.id.menu_skills -> {
-                    startActivity(Intent(this, SkillsActivity::class.java))
-                    true
-                }
-                else -> false
             }
+
+            override fun onFailure(call: Call<List<Monster>>, t: Throwable) {
+                // Manejar errores
+            }
+        })
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.main_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.menu_item1 -> {
+                // Acción para el primer botón del menú
+                true
+            }
+            R.id.menu_item2 -> {
+                // Acción para el segundo botón del menú
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
         }
     }
 }
