@@ -52,7 +52,6 @@
             android:layout_height="wrap_content"
             android:textSize="14sp" />
 
-        <!-- Agrega más TextViews aquí para otros atributos de armas -->
 
         <ImageView
             android:id="@+id/weaponImageView"

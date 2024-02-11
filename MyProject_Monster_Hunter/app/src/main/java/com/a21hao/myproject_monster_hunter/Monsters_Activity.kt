@@ -26,7 +26,7 @@ class Monsters_Activity : AppCompatActivity() {
         recyclerView.adapter = adapter
 
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://tu-api-url.com/")
+            .baseUrl("https://mhw-db.com/monsters/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 

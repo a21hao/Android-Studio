@@ -19,14 +19,12 @@ class MonsterAdapter(private val monsters: List<Monster>) : RecyclerView.Adapter
         holder.speciesTextView.text = "Species: ${monster.species}"
         holder.descriptionTextView.text = "Description: ${monster.description}"
 
-        // Ubicaciones
         val locationBuilder = StringBuilder("Locations: ")
         for (location in monster.locations) {
             locationBuilder.append("${location.name}, ")
         }
         holder.locationsTextView.text = locationBuilder.toString().trimEnd(',', ' ')
 
-        // Debilidades
         val weaknessBuilder = StringBuilder("Weaknesses: ")
         for (weakness in monster.weaknesses) {
             weaknessBuilder.append("${weakness.element} (${weakness.stars} stars), ")

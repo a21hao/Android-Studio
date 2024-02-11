@@ -32,7 +32,6 @@
                 app:srcCompat="@drawable/logo_title" />
         </LinearLayout>
 
-        <!-- RecyclerView para mostrar la lista de monstruos -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/weapons_recycle"
             android:layout_width="match_parent"

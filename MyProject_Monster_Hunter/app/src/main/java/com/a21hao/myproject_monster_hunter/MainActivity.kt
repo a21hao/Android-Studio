@@ -13,17 +13,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Botón 1: Ir a Pantalla de Monstruos
         findViewById<Button>(R.id.button1).setOnClickListener {
             startActivity(Intent(this, Monsters_Activity::class.java))
         }
 
-        // Botón 2: Ir a Pantalla de Item
         findViewById<Button>(R.id.button2).setOnClickListener {
             startActivity(Intent(this, Items_Activity::class.java))
         }
-
-        // Botón 3: Ir a Pantalla de Armas
 
         findViewById<Button>(R.id.button3).setOnClickListener {
             startActivity(Intent(this, Weapons_Activity::class.java))

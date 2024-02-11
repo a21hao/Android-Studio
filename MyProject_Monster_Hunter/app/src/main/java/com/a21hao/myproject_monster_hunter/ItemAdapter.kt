@@ -17,7 +17,6 @@ class ItemAdapter(private val items: List<Item>) : RecyclerView.Adapter<ItemAdap
         val item = items[position]
         holder.nameTextView.text = "Name: ${item.name}"
         holder.descriptionTextView.text = "Description: ${item.description}"
-        // Puedes continuar asignando otros atributos del item a las vistas según sea necesario
     }
 
     override fun getItemCount(): Int {
@@ -27,6 +26,5 @@ class ItemAdapter(private val items: List<Item>) : RecyclerView.Adapter<ItemAdap
     inner class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val nameTextView: TextView = itemView.findViewById(R.id.nameTextView)
         val descriptionTextView: TextView = itemView.findViewById(R.id.descriptionTextView)
-        // Aquí puedes agregar más vistas según sea necesario para mostrar otros atributos de los items
     }
 }

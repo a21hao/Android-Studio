@@ -26,7 +26,7 @@ class Weapons_Activity : AppCompatActivity() {
         recyclerView.adapter = adapter
 
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://mhw-db.com/") // Corrige la URL base
+            .baseUrl("https://mhw-db.com/weapons/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 

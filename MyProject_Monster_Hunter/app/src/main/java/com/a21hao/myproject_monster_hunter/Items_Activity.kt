@@ -14,7 +14,7 @@ class Items_Activity : AppCompatActivity() {
 
     private lateinit var recyclerView: RecyclerView
     private var items: MutableList<Item> = mutableListOf()
-    private lateinit var adapter: ItemAdapter // Necesitarás crear un adaptador similar al de Monster
+    private lateinit var adapter: ItemAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,7 +26,7 @@ class Items_Activity : AppCompatActivity() {
         recyclerView.adapter = adapter
 
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://mhw-db.com")
+            .baseUrl("https://mhw-db.com/item")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
