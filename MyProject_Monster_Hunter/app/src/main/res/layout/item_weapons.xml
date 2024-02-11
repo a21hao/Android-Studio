@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent">
 
     <ImageView
         android:id="@+id/imageView4"
@@ -11,54 +10,58 @@
         android:layout_height="wrap_content"
         android:scaleType="centerCrop"
         android:src="@drawable/cuadrado"
-        app:layout_constraintBottom_toBottomOf="@+id/linearLayout" />
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout2" />
+
 
     <LinearLayout
-        android:id="@+id/linearLayout"
+        android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp"
-        tools:layout_editor_absoluteX="37dp"
-        tools:layout_editor_absoluteY="-3dp">
+        android:padding="16dp">
 
         <TextView
             android:id="@+id/nameTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
             android:textSize="18sp"
-            android:textStyle="bold"
-            tools:text="Name: Monster Name" />
+            android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/speciesTextView"
+            android:id="@+id/typeTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:textSize="16sp"
-            android:textStyle="italic"
-            tools:text="Species: Monster Species" />
+            android:textSize="14sp" />
 
         <TextView
-            android:id="@+id/descriptionTextView"
+            android:id="@+id/rarityTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            tools:text="Description: Monster Description" />
+            android:textSize="14sp" />
 
         <TextView
-            android:id="@+id/locationsTextView"
+            android:id="@+id/attackTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            tools:text="Locations: Monster Location 1, Monster Location 2" />
+            android:textSize="14sp" />
 
         <TextView
-            android:id="@+id/weaknessesTextView"
+            android:id="@+id/eldersealTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            tools:text="Weaknesses: Fire (1 stars), Water (2 stars)" />
+            android:textSize="14sp" />
+
+        <!-- Agrega más TextViews aquí para otros atributos de armas -->
+
+        <ImageView
+            android:id="@+id/weaponImageView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="centerCrop"
+            app:layout_constraintTop_toBottomOf="@id/eldersealTextView" />
+
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
