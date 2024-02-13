@@ -18,7 +18,7 @@ class Monsters_Activity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_monster) // Asegúrate de que estás usando el mismo layout que antes
+        setContentView(R.layout.activity_monster)
 
         recyclerView = findViewById(R.id.monster_recycle)
         recyclerView.layoutManager = LinearLayoutManager(this)
