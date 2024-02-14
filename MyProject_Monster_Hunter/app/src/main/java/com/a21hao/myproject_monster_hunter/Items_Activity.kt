@@ -26,7 +26,7 @@ class Items_Activity : AppCompatActivity() {
         recyclerView.adapter = adapter
 
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://mhw-db.com/item")
+            .baseUrl("https://mhw-db.com/item/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
