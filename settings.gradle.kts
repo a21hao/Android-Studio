@@ -15,3 +15,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "layoutvertical"
 include(":app")
+include(":app")
+ 
