@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:padding="16dp">
 
@@ -21,23 +22,27 @@
 
         <Button
             android:id="@+id/playButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Play" />
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/play"
+            app:backgroundTint="@null" />
 
         <Button
             android:id="@+id/pauseButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:text="Pause" />
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="16dp"
+            android:background="@drawable/pausa"
+            app:backgroundTint="@null" />
 
         <Button
             android:id="@+id/stopButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
             android:layout_marginStart="8dp"
-            android:text="Stop" />
+            android:background="@drawable/stop"
+            android:src="@drawable/stop"
+            app:backgroundTint="@null" />
 
     </LinearLayout>
 
