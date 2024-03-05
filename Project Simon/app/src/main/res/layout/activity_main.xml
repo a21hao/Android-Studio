@@ -21,12 +21,25 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/sequenceCountTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="500dp"
+        android:text="0"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
     <LinearLayout
         android:id="@+id/linearLayout3"
         android:layout_width="100dp"
         android:layout_height="200dp"
         android:layout_marginStart="100dp"
         android:layout_marginTop="200dp"
+        android:layout_marginEnd="5dp"
         android:layout_marginBottom="300dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -54,6 +67,7 @@
         android:id="@+id/linearLayout2"
         android:layout_width="100dp"
         android:layout_height="200dp"
+        android:layout_marginStart="5dp"
         android:layout_marginTop="200dp"
         android:layout_marginEnd="100dp"
         android:layout_marginBottom="300dp"
@@ -77,5 +91,16 @@
             android:backgroundTint="#FFB13B"
             app:cornerRadius="0dp" />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/play"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="250dp"
+        android:text="Play"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
