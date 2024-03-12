@@ -1,17 +1,17 @@
 package com.example.projectsimon
 
-import android.media.MediaPlayer
+import android.media.AudioAttributes
+import android.media.SoundPool
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.coroutines.*
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var mediaPlayer1: MediaPlayer
-    private lateinit var mediaPlayer2: MediaPlayer
-    private lateinit var mediaPlayer3: MediaPlayer
-    private lateinit var mediaPlayer4: MediaPlayer
+    private lateinit var soundPool: SoundPool
+    private var soundIds = intArrayOf()
 
     private lateinit var sequenceCountTextView: TextView
 
@@ -29,10 +29,22 @@ class MainActivity : AppCompatActivity() {
 
         sequenceCountTextView = findViewById(R.id.sequenceCountTextView)
 
-        mediaPlayer1 = MediaPlayer.create(this, R.raw.verde)
-        mediaPlayer2 = MediaPlayer.create(this, R.raw.rojo)
-        mediaPlayer3 = MediaPlayer.create(this, R.raw.amarillo)
-        mediaPlayer4 = MediaPlayer.create(this, R.raw.azul)
+        val attributes = AudioAttributes.Builder()
+            .setUsage(AudioAttributes.USAGE_GAME)
+            .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
+            .build()
+
+        soundPool = SoundPool.Builder()
+            .setMaxStreams(4)
+            .setAudioAttributes(attributes)
+            .build()
+
+        soundIds = intArrayOf(
+            soundPool.load(this, R.raw.verde, 1),
+            soundPool.load(this, R.raw.rojo, 1),
+            soundPool.load(this, R.raw.amarillo, 1),
+            soundPool.load(this, R.raw.azul, 1)
+        )
 
         val button1: Button = findViewById(R.id.button)
         val button2: Button = findViewById(R.id.button2)
@@ -60,46 +72,50 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun addToSimonSequence() {
-        val randomButton = (1..4).random()
-        simonSequence.add(randomButton)
+        if (sequenceCount < 10) {
+            val randomButton = (1..4).random()
+            simonSequence.add(randomButton)
 
-        job = CoroutineScope(Dispatchers.Main).launch {
-            for (button in simonSequence) {
-                playButtonSound(button)
-                delay(1000)
+            job = CoroutineScope(Dispatchers.Main).launch {
+                for (button in simonSequence) {
+                    delay(1000)
+                    playButtonSound(button)
+                    delay(1000)
+                }
+                userTurn = true
             }
-            userTurn = true
+        } else {
+            Toast.makeText(this, "¡Has ganado!", Toast.LENGTH_SHORT).show()
         }
     }
 
-    private suspend fun playButtonSound(button: Int) {
-        val mediaPlayer = when (button) {
-            1 -> mediaPlayer1
-            2 -> mediaPlayer2
-            3 -> mediaPlayer3
-            else -> mediaPlayer4
-        }
-        mediaPlayer.seekTo(0)
-        mediaPlayer.start()
+
+    private fun playButtonSound(button: Int) {
+        soundPool.play(soundIds[button - 1], 1.0f, 1.0f, 1, 0, 1.0f)
     }
 
     private fun playButtonSequence(button: Int) {
-        if (userTurn) {
-            playerSequence.add(button)
-            if (button != simonSequence[currentIndex]) {
-                startGame()
-            } else {
-                currentIndex++
-                if (currentIndex == simonSequence.size) {
-                    userTurn = false
-                    currentIndex = 0
-                    sequenceCount++
-                    updateSequenceCountText()
-                    addToSimonSequence()
+        if (userTurn || !simonSequence.isEmpty()) {
+            playButtonSound(button)
+
+            if (userTurn) {
+                playerSequence.add(button)
+                if (button != simonSequence[currentIndex]) {
+                    startGame()
+                } else {
+                    currentIndex++
+                    if (currentIndex == simonSequence.size) {
+                        userTurn = false
+                        currentIndex = 0
+                        sequenceCount++
+                        updateSequenceCountText()
+                        addToSimonSequence()
+                    }
                 }
             }
         }
     }
+
 
     private fun updateSequenceCountText() {
         sequenceCountTextView.text = "$sequenceCount"
@@ -108,9 +124,6 @@ class MainActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         job?.cancel()
-        mediaPlayer1.release()
-        mediaPlayer2.release()
-        mediaPlayer3.release()
-        mediaPlayer4.release()
+        soundPool.release()
     }
 }
