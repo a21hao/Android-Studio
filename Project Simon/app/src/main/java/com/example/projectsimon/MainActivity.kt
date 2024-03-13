@@ -78,7 +78,7 @@ class MainActivity : AppCompatActivity() {
 
             job = CoroutineScope(Dispatchers.Main).launch {
                 for (button in simonSequence) {
-                    delay(1000)
+                    delay(700)
                     playButtonSound(button)
                     delay(1000)
                 }
