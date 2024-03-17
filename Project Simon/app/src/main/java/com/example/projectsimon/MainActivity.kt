@@ -72,13 +72,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun addToSimonSequence() {
-        if (sequenceCount < 10) {
+        if (sequenceCount < 4) {
             val randomButton = (1..4).random()
             simonSequence.add(randomButton)
 
             job = CoroutineScope(Dispatchers.Main).launch {
                 for (button in simonSequence) {
-                    delay(700)
+                    delay(100)
                     playButtonSound(button)
                     delay(1000)
                 }
