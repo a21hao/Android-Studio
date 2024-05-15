@@ -5,5 +5,5 @@ import retrofit2.http.GET
 
 interface ApiService {
     @GET("https://mhw-db.com/monsters")
-    fun getMonsters(): Call<List<Monster>>
+    fun getMonsters(): Call<List<MonsterEntity>>
 }
