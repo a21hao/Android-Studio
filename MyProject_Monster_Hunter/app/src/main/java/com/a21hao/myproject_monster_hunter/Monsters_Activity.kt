@@ -1,6 +1,7 @@
 package com.a21hao.myproject_monster_hunter
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -13,17 +14,23 @@ import retrofit2.converter.gson.GsonConverterFactory
 class Monsters_Activity : AppCompatActivity() {
 
     private lateinit var recyclerView: RecyclerView
+    private lateinit var progressBar: View
     private var monsters: MutableList<Monster> = mutableListOf()
     private lateinit var adapter: MonsterAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_monster) // Asegúrate de que estás usando el mismo layout que antes
+        setContentView(R.layout.activity_monster)
 
         recyclerView = findViewById(R.id.monster_recycle)
+        progressBar = findViewById(R.id.progress_bar)
         recyclerView.layoutManager = LinearLayoutManager(this)
         adapter = MonsterAdapter(monsters)
         recyclerView.adapter = adapter
+
+        // Mostrar la ProgressBar y ocultar el RecyclerView al inicio
+        progressBar.visibility = View.VISIBLE
+        recyclerView.visibility = View.GONE
 
         val retrofit = Retrofit.Builder()
             .baseUrl("https://mhw-db.com/monsters/")
@@ -38,13 +45,19 @@ class Monsters_Activity : AppCompatActivity() {
                 if (response.isSuccessful) {
                     monsters.addAll(response.body()!!)
                     adapter.notifyDataSetChanged()
+
+                    // Ocultar la ProgressBar y mostrar el RecyclerView cuando los datos han sido obtenidos
+                    progressBar.visibility = View.GONE
+                    recyclerView.visibility = View.VISIBLE
                 } else {
                     // Manejar errores
+                    progressBar.visibility = View.GONE
                 }
             }
 
             override fun onFailure(call: Call<List<Monster>>, t: Throwable) {
                 // Manejar errores
+                progressBar.visibility = View.GONE
             }
         })
     }

@@ -1,6 +1,7 @@
 package com.a21hao.myproject_monster_hunter
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -13,6 +14,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class Weapons_Activity : AppCompatActivity() {
 
     private lateinit var recyclerView: RecyclerView
+    private lateinit var progressBar: View
     private var weapons: MutableList<Weapon> = mutableListOf()
     private lateinit var adapter: WeaponsAdapter
 
@@ -21,16 +23,21 @@ class Weapons_Activity : AppCompatActivity() {
         setContentView(R.layout.activity_weapons)
 
         recyclerView = findViewById(R.id.weapons_recycle)
+        progressBar = findViewById(R.id.progress_bar2)
         recyclerView.layoutManager = LinearLayoutManager(this)
         adapter = WeaponsAdapter(this, weapons)
         recyclerView.adapter = adapter
+
+        // Mostrar la ProgressBar y ocultar el RecyclerView al inicio
+        progressBar.visibility = View.VISIBLE
+        recyclerView.visibility = View.GONE
 
         val retrofit = Retrofit.Builder()
             .baseUrl("https://mhw-db.com/weapons/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
-        val apiService = retrofit.create(WeaponsApiService::class.java) // Utiliza WeaponsApiService
+        val apiService = retrofit.create(WeaponsApiService::class.java)
 
         val call = apiService.getWeapons()
         call.enqueue(object : Callback<List<Weapon>> {
@@ -38,13 +45,19 @@ class Weapons_Activity : AppCompatActivity() {
                 if (response.isSuccessful) {
                     weapons.addAll(response.body()!!)
                     adapter.notifyDataSetChanged()
+
+                    // Ocultar la ProgressBar y mostrar el RecyclerView cuando los datos han sido obtenidos
+                    progressBar.visibility = View.GONE
+                    recyclerView.visibility = View.VISIBLE
                 } else {
                     // Manejar errores
+                    progressBar.visibility = View.GONE
                 }
             }
 
             override fun onFailure(call: Call<List<Weapon>>, t: Throwable) {
                 // Manejar errores
+                progressBar.visibility = View.GONE
             }
         })
     }
