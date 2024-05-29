@@ -12,9 +12,14 @@
         android:orientation="vertical">
 
         <VideoView
+            android:id="@+id/videoViewOnline"
+            android:layout_width="match_parent"
+            android:layout_height="379dp" />
+
+        <VideoView
             android:id="@+id/videoViewLocal"
             android:layout_width="match_parent"
-            android:layout_height="236dp" />
+            android:layout_height="352dp" />
 
     </LinearLayout>
 
