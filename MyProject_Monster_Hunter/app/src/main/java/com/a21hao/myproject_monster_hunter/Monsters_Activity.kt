@@ -28,7 +28,6 @@ class Monsters_Activity : AppCompatActivity() {
         adapter = MonsterAdapter(monsters)
         recyclerView.adapter = adapter
 
-        // Mostrar la ProgressBar y ocultar el RecyclerView al inicio
         progressBar.visibility = View.VISIBLE
         recyclerView.visibility = View.GONE
 
@@ -46,17 +45,14 @@ class Monsters_Activity : AppCompatActivity() {
                     monsters.addAll(response.body()!!)
                     adapter.notifyDataSetChanged()
 
-                    // Ocultar la ProgressBar y mostrar el RecyclerView cuando los datos han sido obtenidos
                     progressBar.visibility = View.GONE
                     recyclerView.visibility = View.VISIBLE
                 } else {
-                    // Manejar errores
                     progressBar.visibility = View.GONE
                 }
             }
 
             override fun onFailure(call: Call<List<Monster>>, t: Throwable) {
-                // Manejar errores
                 progressBar.visibility = View.GONE
             }
         })

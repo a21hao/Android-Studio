@@ -5,7 +5,7 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Monsters_Activity">
+    tools:context=".Items_Activity">
 
     <ImageView
         android:id="@+id/imageView3"
@@ -32,11 +32,26 @@
                 app:srcCompat="@drawable/logo_title" />
         </LinearLayout>
 
-        <!-- RecyclerView para mostrar la lista de monstruos -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/item_recycle"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:visibility="gone" />
 
+        <ProgressBar
+            android:id="@+id/progress_bar_item"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </LinearLayout>
 </androidx.drawerlayout.widget.DrawerLayout>
