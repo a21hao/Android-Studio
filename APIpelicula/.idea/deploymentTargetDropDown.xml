@@ -2,11 +2,7 @@
 <project version="4">
   <component name="deploymentTargetDropDown">
     <value>
-<<<<<<< Updated upstream
       <entry key="app">
-        <State />
-=======
-      <entry key="Simon">
         <State>
           <targetSelectedWithDropDown>
             <Target>
@@ -14,14 +10,13 @@
               <deviceKey>
                 <Key>
                   <type value="VIRTUAL_DEVICE_PATH" />
-                  <value value="C:\Users\Hao\.android\avd\Pixel_6a_API_34.avd" />
+                  <value value="C:\Users\Hao\.android\avd\Pixel_7_API_34.avd" />
                 </Key>
               </deviceKey>
             </Target>
           </targetSelectedWithDropDown>
-          <timeTargetWasSelectedWithDropDown value="2024-04-28T13:59:55.844034Z" />
+          <timeTargetWasSelectedWithDropDown value="2024-06-04T21:54:57.801867200Z" />
         </State>
->>>>>>> Stashed changes
       </entry>
     </value>
   </component>
