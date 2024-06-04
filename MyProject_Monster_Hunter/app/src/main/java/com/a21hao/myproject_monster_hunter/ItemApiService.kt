@@ -6,3 +6,4 @@ import retrofit2.http.GET
 interface ItemApiService {
     @GET("https://mhw-db.com/items")
     fun getItems(): Call<List<Item>>
+}
