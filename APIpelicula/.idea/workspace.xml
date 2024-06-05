@@ -20,11 +20,6 @@
           <theme>@style/Theme.APIpelicula</theme>
         </config>
       </layout>
-      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/item_rv_pelicula.xml">
-        <config>
-          <theme>@style/Theme.APIpelicula</theme>
-        </config>
-      </layout>
     </layouts>
   </component>
   <component name="AutoImportSettings">
@@ -32,10 +27,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4c17fbad-b409-4f9e-9718-4eec7ad25199" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/apipelicula/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/apipelicula/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/apipelicula/Movie.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/apipelicula/Movie.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/apipelicula/MovieAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/apipelicula/MovieAdapter.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/apipelicula/MovieApiService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/apipelicula/MovieApiService.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/apipelicula/MovieDetailsActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/apipelicula/MovieDetailsActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MyProject_Monster_Hunter/app/src/main/java/com/a21hao/myproject_monster_hunter/ItemApiService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../MyProject_Monster_Hunter/app/src/main/java/com/a21hao/myproject_monster_hunter/ItemApiService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/apipelicula/MovieResponse.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/apipelicula/MovieResponse.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyProject_Monster_Hunter/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../MyProject_Monster_Hunter/.idea/misc.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +117,7 @@
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "com.google.services.firebase.aqiPopupShown": "true",
-    "last_opened_file_path": "E:/GitHub/Android-Studio/MyProject_Monster_Hunter"
+    "last_opened_file_path": "E:/GitHub/Android-Studio/APIpelicula"
   }
 }]]></component>
   <component name="RunManager">
@@ -198,5 +199,16 @@
       <updated>1717530800707</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
