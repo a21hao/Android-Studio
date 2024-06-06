@@ -8,8 +8,8 @@
     <ImageView
         android:id="@+id/movieImage"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:scaleType="centerCrop"/>
+        android:layout_height="304dp"
+        android:scaleType="centerCrop" />
 
     <TextView
         android:id="@+id/movieTitle"
