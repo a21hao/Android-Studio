@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "C:\\Users\\Hao\\.gradle\\daemon\\8.2\\com.example.apipelicula.app-mergeDebugResources-37:\\layout\\activity_main.xml",
+        "source": "C:\\Users\\Hao\\.gradle\\daemon\\8.2\\com.example.apipelicula.app-main-40:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "com.example.apipelicula.app-mergeDebugResources-37:/layout/item_movie.xml",
+        "source": "com.example.apipelicula.app-main-40:/layout/item_movie.xml"
+    },
+    {
+        "merged": "C:\\Users\\Hao\\.gradle\\daemon\\8.2\\com.example.apipelicula.app-mergeDebugResources-37:\\layout\\activity_movie_details.xml",
+        "source": "C:\\Users\\Hao\\.gradle\\daemon\\8.2\\com.example.apipelicula.app-main-40:\\layout\\activity_movie_details.xml"
+    },
+    {
+        "merged": "C:\\Users\\Hao\\.gradle\\daemon\\8.2\\com.example.apipelicula.app-mergeDebugResources-37:\\layout\\item_movie.xml",
+        "source": "C:\\Users\\Hao\\.gradle\\daemon\\8.2\\com.example.apipelicula.app-main-40:\\layout\\item_movie.xml"
+    }
+]

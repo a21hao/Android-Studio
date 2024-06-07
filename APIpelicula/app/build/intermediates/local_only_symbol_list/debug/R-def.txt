@@ -1,0 +1,28 @@
+R_DEF: Internal format may change without notice
+local
+color azul_200
+color black
+color blanco_200
+color gris_200
+color rojo_200
+color verde_200
+color white
+drawable ic_launcher_background
+drawable ic_launcher_foreground
+id movieDescription
+id movieImage
+id movieImageLarge
+id moviePoints
+id movieTitle
+id movieTitleLarge
+id recyclerView
+layout activity_main
+layout activity_movie_details
+layout item_movie
+mipmap ic_launcher
+mipmap ic_launcher_round
+string app_name
+style Base.Theme.APIpelicula
+style Theme.APIpelicula
+xml backup_rules
+xml data_extraction_rules
