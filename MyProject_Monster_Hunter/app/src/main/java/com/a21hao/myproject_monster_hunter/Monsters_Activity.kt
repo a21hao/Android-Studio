@@ -30,7 +30,7 @@ class Monsters_Activity : AppCompatActivity() {
         progressBar = findViewById(R.id.progress_bar)
         animatedImage = findViewById(R.id.animated_image)
         recyclerView.layoutManager = LinearLayoutManager(this)
-        adapter = MonsterAdapter(monsters)
+        adapter = MonsterAdapter(this, monsters) // Pass the context and monsters list
         recyclerView.adapter = adapter
 
         startAnimation()
@@ -39,9 +39,9 @@ class Monsters_Activity : AppCompatActivity() {
         recyclerView.visibility = View.GONE
 
         val retrofit = Retrofit.Builder()
-                .baseUrl("https://mhw-db.com/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build()
+            .baseUrl("https://mhw-db.com/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
 
         val apiService = retrofit.create(ApiService::class.java)
 

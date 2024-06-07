@@ -44,5 +44,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Armas" />
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Favoritos" />
     </LinearLayout>
 </androidx.drawerlayout.widget.DrawerLayout>

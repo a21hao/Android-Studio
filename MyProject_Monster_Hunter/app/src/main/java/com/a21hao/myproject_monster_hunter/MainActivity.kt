@@ -25,5 +25,8 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, Weapons_Activity::class.java))
         }
 
+        findViewById<Button>(R.id.button4).setOnClickListener {
+            startActivity(Intent(this, Favorites_Activity::class.java))
+        }
     }
 }

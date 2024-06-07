@@ -23,6 +23,7 @@
         <activity android:name=".Monsters_Activity" />
         <activity android:name=".Items_Activity" />
         <activity android:name=".Weapons_Activity" />
+        <activity android:name=".Favorites_Activity" />
     </application>
 
 </manifest>
