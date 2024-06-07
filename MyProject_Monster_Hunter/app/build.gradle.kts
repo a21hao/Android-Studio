@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId = "com.a21hao.myproject_monster_hunter"
-        minSdk = 24
+        minSdk = 34
         targetSdk = 33
         versionCode = 1
         versionName = "1.0"
